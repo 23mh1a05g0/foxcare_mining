@@ -11,15 +11,14 @@ class BoostScreen extends StatelessWidget {
     final double greenHeight = height * 0.4;
     final double bigCircleSize = 150;
     final double smallCircleSize = 50;
-    final double navBarHeight = 80;
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
-          // Column to split screen
+          // Green + white background
           Column(
             children: [
-              // Top green container
               Container(
                 height: greenHeight,
                 width: width,
@@ -34,7 +33,6 @@ class BoostScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              // Bottom white container
               Expanded(
                 child: Container(
                   color: Colors.white,
@@ -44,22 +42,22 @@ class BoostScreen extends StatelessWidget {
             ],
           ),
 
-          // Top bar
+          // Top Bar
           Positioned(
             top: 0,
             left: 0,
             right: 0,
             child: SafeArea(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Icon(Icons.menu, color: Colors.white, size: 28),
+                      onTap: () => Navigator.pop(context),
+                      child: const Icon(Icons.menu,
+                          color: Colors.white, size: 28),
                     ),
                     Row(
                       children: [
@@ -82,7 +80,7 @@ class BoostScreen extends StatelessWidget {
             ),
           ),
 
-          // Big circular container
+          // Middle large circle
           Positioned(
             top: greenHeight - 80,
             left: (width - bigCircleSize) / 2,
@@ -108,114 +106,132 @@ class BoostScreen extends StatelessWidget {
             ),
           ),
 
-          // Small gray containers above the big circle
+          // --- Small Gray Containers ---
           Positioned(
             top: greenHeight - 80 - 60,
             left: (width - bigCircleSize) / 2 - 40,
-            child: smallDot(icon: Icons.account_balance_wallet),
+            child: smallDot(context, icon: Icons.account_balance_wallet),
           ),
           Positioned(
             top: greenHeight - 80 - 90,
             left: (width - 30) / 2,
-            child: smallDot(icon: Icons.handshake),
+            child: smallDot(context, icon: Icons.handshake),
           ),
           Positioned(
             top: greenHeight - 80 - 60,
             left: (width + bigCircleSize) / 2 + 10,
-            child: smallDot(icon: Icons.pets),
+            child: smallDot(context, icon: Icons.pets),
           ),
           Positioned(
             top: greenHeight - 120 + bigCircleSize / 2 - 15,
             left: (width - bigCircleSize) / 2 - 90,
-            child: smallDot(icon: Icons.emoji_events),
+            child: smallDot(context, icon: Icons.emoji_events),
           ),
           Positioned(
             top: greenHeight - 120 + bigCircleSize / 2 - 15,
             left: (width + bigCircleSize) / 2 + 45,
-            child: smallDot(icon: Icons.flash_on),
+            child: smallDot(context, icon: Icons.flash_on),
           ),
 
-          // Small green containers below the big circle (touch big circle)
+          // --- Small Green Containers ---
           Positioned(
             top: greenHeight - 120 + bigCircleSize - 10,
             left: (width - bigCircleSize) / 2 - 25,
-            child: smallDotGreen(icon: Icons.lock),
+            child: smallDotGreen(context, icon: Icons.lock),
           ),
           Positioned(
             top: greenHeight - 80 + bigCircleSize - 10,
             left: (width - smallCircleSize) / 2,
-            child: smallDotGreen(icon: Icons.handyman),
+            child: smallDotGreen(context, icon: Icons.handyman),
           ),
           Positioned(
             top: greenHeight - 120 + bigCircleSize - 10,
             left: (width + bigCircleSize) / 2 - 35,
-            child: smallDotGreen(icon: Icons.diamond),
+            child: smallDotGreen(context, icon: Icons.diamond),
           ),
 
-          // Additional small green containers on white background
+          // --- Green Containers on white section ---
           Positioned(
             top: greenHeight + 200,
             left: (width - bigCircleSize) / 2 - 60,
-            child: smallDotGreen(icon: Icons.energy_savings_leaf),
+            child: smallDotGreen(context, icon: Icons.energy_savings_leaf),
           ),
           Positioned(
             top: greenHeight + 295,
             left: (width - bigCircleSize) / 2 + bigCircleSize + 0,
-            child: smallDotGreen(icon: Icons.lock),
+            child: smallDotGreen(context, icon: Icons.lock),
           ),
           Positioned(
             top: greenHeight + 190,
             left: (width - bigCircleSize) / 2 + bigCircleSize + 0,
-            child: smallDotGreen(icon: Icons.energy_savings_leaf),
+            child: smallDotGreen(context, icon: Icons.energy_savings_leaf),
           ),
           Positioned(
             top: greenHeight + 200,
             left: (width - 80) / 2,
-            child: smallDotGreen(icon: Icons.emoji_events),
+            child: smallDotGreen(context, icon: Icons.emoji_events),
           ),
           Positioned(
             top: greenHeight + 290,
             left: (width - bigCircleSize) / 2 - 50,
-            child: smallDotGreen(icon: Icons.wallet_giftcard),
+            child: smallDotGreen(context, icon: Icons.wallet_giftcard),
           ),
           Positioned(
             top: greenHeight + 280,
             left: (width + bigCircleSize) / 2 - 100,
-            child: smallDotGreen(icon: Icons.flash_on),
+            child: smallDotGreen(context, icon: Icons.flash_on),
           ),
           Positioned(
             top: greenHeight - 0 + bigCircleSize / 1 - 15,
             left: (width - bigCircleSize) / 2 - 30,
-            child: smallDot(icon: Icons.emoji_events),
+            child: smallDot(context, icon: Icons.emoji_events),
           ),
           Positioned(
             top: greenHeight - 0 + bigCircleSize / 1 - 15,
             left: (width + bigCircleSize) / 2 + 45,
-            child: smallDot(icon: Icons.flash_on),
+            child: smallDot(context, icon: Icons.flash_on),
           ),
 
-          // Bottom Navigation Bar
+          // --- Bottom Trapezium Buttons ---
           Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              height: navBarHeight,
-              color: Colors.white,
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  // First rectangle box with lock icon
-                  navBarItem(child: const Icon(Icons.lock, color: Colors.white)),
-                  // Second rectangle box with fox image
-                  navBarItem(
-                      child: Image.asset('assets/fox.png', height: 35, width: 35)),
-                  // Third rectangle box with rabbit image
-                  navBarItem(
-                      child: Image.asset('assets/rabbit.png', height: 35, width: 35)),
-                ],
-              ),
+            bottom: 20,
+            left: 20,
+            child: Row(
+              children: [
+                CustomPaint(
+                  painter: TrapeziumPainter(color: const Color(0xFF5DAE79)),
+                  child: SizedBox(
+                    height: 70,
+                    width: 130,
+                    child: Center(
+                      child: Image.asset('assets/fox.png',
+                          height: 35, width: 35),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                CustomPaint(
+                  painter: TrapeziumPainter(color: const Color(0xFF5DAE79)),
+                  child: const SizedBox(
+                    height: 70,
+                    width: 130,
+                    child: Center(
+                      child: Icon(Icons.lock, color: Colors.white, size: 35),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          // --- Rabbit ---
+          Positioned(
+            bottom: 20,
+            right: 20,
+            child: Image.asset(
+              'assets/rabbit.png',
+              height: 130,
+              width: 130,
             ),
           ),
         ],
@@ -223,69 +239,120 @@ class BoostScreen extends StatelessWidget {
     );
   }
 
-  // Small gray container with green icon
-  Widget smallDot({required IconData icon}) {
-    return Container(
-      height: 55,
-      width: 55,
-      decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 241, 239, 238),
-        shape: BoxShape.circle,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            blurRadius: 5,
-            offset: const Offset(0, 3),
-          ),
-        ],
+  // Tap-enabled gray circle
+  Widget smallDot(BuildContext context, {required IconData icon}) {
+    return GestureDetector(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => DetailScreen(icon: icon)),
       ),
-      child: Center(
-        child: Icon(
-          icon,
+      child: Container(
+        height: 55,
+        width: 55,
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 241, 239, 238),
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              blurRadius: 5,
+              offset: const Offset(0, 3),
+            ),
+          ],
+        ),
+        child: Center(
+          child: Icon(icon, color: const Color(0xFF5DAE79), size: 30),
+        ),
+      ),
+    );
+  }
+
+  // Tap-enabled green circle
+  Widget smallDotGreen(BuildContext context, {required IconData icon}) {
+    return GestureDetector(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => DetailScreen(icon: icon)),
+      ),
+      child: Container(
+        height: 65,
+        width: 65,
+        decoration: BoxDecoration(
           color: const Color(0xFF5DAE79),
-          size: 30,
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              blurRadius: 5,
+              offset: const Offset(0, 3),
+            ),
+          ],
+        ),
+        child: Center(
+          child: Icon(icon, color: Colors.white, size: 35),
         ),
       ),
     );
   }
+}
 
-  // Small green container with white icon
-  Widget smallDotGreen({required IconData icon}) {
-    return Container(
-      height: 65,
-      width: 65,
-      decoration: BoxDecoration(
-        color: const Color(0xFF5DAE79),
-        shape: BoxShape.rectangle,
-        borderRadius: BorderRadius.circular(15),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            blurRadius: 5,
-            offset: const Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Center(
-        child: Icon(
-          icon,
-          color: Colors.white,
-          size: 35,
-        ),
-      ),
-    );
+// --- Trapezium Painter ---
+class TrapeziumPainter extends CustomPainter {
+  final Color color;
+  TrapeziumPainter({required this.color});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.fill;
+
+    final path = Path();
+    path.moveTo(0, 0);
+    path.lineTo(size.width, 0);
+    path.lineTo(size.width * 0.8, size.height);
+    path.lineTo(size.width * 0.2, size.height);
+    path.close();
+
+    canvas.drawPath(path, paint);
   }
 
-  // Navigation Bar item
-  Widget navBarItem({required Widget child}) {
-    return Container(
-      height: 60,
-      width: 80,
-      decoration: BoxDecoration(
-        color: const Color(0xFF5DAE79),
-        borderRadius: BorderRadius.circular(15),
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+// --- Detail Screen ---
+class DetailScreen extends StatelessWidget {
+  final IconData icon;
+  const DetailScreen({super.key, required this.icon});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Details"),
+        backgroundColor: const Color(0xFF5DAE79),
       ),
-      child: Center(child: child),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, color: const Color(0xFF5DAE79), size: 100),
+            const SizedBox(height: 30),
+            ElevatedButton.icon(
+              onPressed: () => Navigator.pop(context),
+              icon: const Icon(Icons.arrow_back),
+              label: const Text("Go Back"),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF5DAE79),
+                foregroundColor: Colors.white,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
