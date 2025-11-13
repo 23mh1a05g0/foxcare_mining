@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foxcare_mining/screens/mining_screen.dart';
+import 'package:foxcare_mining/screens/boost_screen.dart';
 import 'package:device_preview/device_preview.dart';
 
 void main() async {
@@ -17,10 +17,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Boost Demo',
-      theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false, 
-      home: const HomeScreen(),
+      home: const BoostScreen(),
     );
   }
 }
